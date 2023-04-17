@@ -1,0 +1,2 @@
+query for bank balance:-
+db.transactions.aggregate([{$project:{_id:"$name",totalBalance:{$sum:{$cond:{if:["$type",deposit]},then:"$amount",else:(-1)*"$amount"}}},{$sort:{totalBalance:-1}}}])  
