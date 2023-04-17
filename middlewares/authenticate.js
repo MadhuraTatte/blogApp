@@ -14,8 +14,7 @@ const authenticate=async (req,res,next)=>{
         if(err){
             if(err.message==="jwt expired"){
                 const newAccessToken=await fetch("https://puzzled-bandanna-colt.cyclic.app/user/refresh-token",{
-                    
-                headers:{
+                     headers:{
                         "Content-Type":"application/json",
                         Authorization:req.cookies.AccessRefreshToken,
                     }
