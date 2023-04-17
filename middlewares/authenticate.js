@@ -13,7 +13,7 @@ const authenticate=async (req,res,next)=>{
     jwt.verify(AccessToken,"Token_secret",async (err,decoded)=>{
         if(err){
             if(err.message==="jwt expired"){
-                const newAccessToken=await fetch("http://localhost:8080/user/refresh-token",{
+                const newAccessToken=await fetch("https://puzzled-bandanna-colt.cyclic.app/user/refresh-token",{
                     headers:{
                         "Content-Type":"application/json",
                         Authorization:req.cookies.AccessRefreshToken,
